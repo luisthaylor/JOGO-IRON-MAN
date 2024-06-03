@@ -20,7 +20,7 @@ velocidadeMissel = 1
 pontos = 0
 missileSound = pygame.mixer.Sound("assets/missile.wav")
 pygame.mixer.Sound.play(missileSound)
-fonte = pygame.font.SysFont("comicsans",14)
+fonte = pygame.font.SysFont("comicsans",25)
 pygame.mixer.music.load("assets/ironsound.mp3")
 pygame.mixer.music.play(-1)
 while True:

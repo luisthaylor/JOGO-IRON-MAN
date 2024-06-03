@@ -6,7 +6,6 @@ relogio = pygame.time.Clock()
 tela = pygame.display.set_mode( tamanho ) 
 pygame.display.set_caption("Iron Man do Marcão")
 branco = (255,255,255)
-
 preto = (0, 0 ,0 )
 iron = pygame.image.load("assets/iron.png")
 fundo = pygame.image.load("assets/fundo.png")
@@ -18,6 +17,7 @@ movimentoYPersona  = 0
 posicaoXMissel = 400
 posicaoYMissel = -240
 velocidadeMissel = 1
+pontos = 0
 missileSound = pygame.mixer.Sound("assets/missile.wav")
 pygame.mixer.Sound.play(missileSound)
 fonte = pygame.font.SysFont("comicsans",14)
@@ -66,6 +66,7 @@ while True:
     posicaoYMissel = posicaoYMissel + velocidadeMissel
     if posicaoYMissel > 600:
         posicaoYMissel = -240
+        pontos = pontos + 1
         velocidadeMissel = velocidadeMissel + 1
         posicaoXMissel = random.randint(0,800)
         pygame.mixer.Sound.play(missileSound)
@@ -73,8 +74,8 @@ while True:
 
     tela.blit( missel, (posicaoXMissel, posicaoYMissel) )
 
-    texto = fonte.render(str(posicaoXPersona)+"-"+str(posicaoYPersona), True, branco)
-    tela.blit(texto, (posicaoXPersona-30, posicaoYPersona-10))
+    texto = fonte.render("Pontos :" + str(pontos), True, branco )
+    tela.blit(texto, (10,10))
 
 
 
@@ -83,4 +84,3 @@ while True:
 
 
 
-    

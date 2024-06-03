@@ -1,5 +1,6 @@
 import pygame
 import random
+import os
 pygame.init()
 tamanho = (800,600)
 relogio = pygame.time.Clock()
@@ -18,7 +19,13 @@ posicaoXMissel = 400
 posicaoYMissel = -240
 velocidadeMissel = 1
 pontos = 0
+larguraPersona = 250
+alturaPersona = 127
+alturaMissel = 250
+larguraMissel = 50
+dificuldade = 0
 missileSound = pygame.mixer.Sound("assets/missile.wav")
+exploxaoSound = pygame.mixer.Sound("assets/explosao.wav")
 pygame.mixer.Sound.play(missileSound)
 fonte = pygame.font.SysFont("comicsans",25)
 pygame.mixer.music.load("assets/ironsound.mp3")
@@ -76,6 +83,21 @@ while True:
 
     texto = fonte.render("Pontos :" + str(pontos), True, branco )
     tela.blit(texto, (10,10))
+
+    pixelsPersonaX = list(range(posicaoXPersona,posicaoXPersona+larguraPersona))
+    pixelsPersonaY = list(range(posicaoYPersona, posicaoYPersona+alturaPersona))
+    pixelsMisselX= list(range(posicaoXMissel,posicaoXMissel+larguraMissel))
+    pixelsMisselY = list(range(posicaoYMissel,posicaoYMissel+alturaMissel))
+    os.system("cls")
+    print (len(list(set(pixelsMisselX).intersection(set(pixelsPersonaX)))))
+    if len(list( set(pixelsMisselY).intersection(set(pixelsPersonaY)))) > dificuldade:
+        if len(list(set(pixelsMisselX).intersection(set(pixelsPersonaX) ) ) ) >dificuldade:
+            print ('Morreuuuuu')
+            pygame.mixer.Sound.play(exploxaoSound)
+        else:
+            print ('Ainda vivo, mas por pouco !')
+    else:
+        print('Ainda Vivo!')
 
 
 

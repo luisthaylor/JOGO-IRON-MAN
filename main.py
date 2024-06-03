@@ -80,3 +80,6 @@ while True:
 
     pygame.display.update()
     relogio.tick(60)
+
+
+    

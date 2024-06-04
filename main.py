@@ -2,15 +2,21 @@ import pygame
 import random
 import os
 pygame.init()
+
 tamanho = (800,600)
-relogio = pygame.time.Clock()
-tela = pygame.display.set_mode( tamanho ) 
 pygame.display.set_caption("Iron Man do Marcão")
-branco = (255,255,255)
-preto = (0, 0 ,0 )
+pygame.mixer.music.load("assets/ironsound.mp3")
+pygame.mixer.music.play(-1)
+missileSound = pygame.mixer.Sound("assets/missile.wav")
+exploxaoSound = pygame.mixer.Sound("assets/explosao.wav")
+pygame.mixer.Sound.play(missileSound)
 iron = pygame.image.load("assets/iron.png")
 fundo = pygame.image.load("assets/fundo.png")
 missel = pygame.image.load("assets/missile.png")
+relogio = pygame.time.Clock()
+tela = pygame.display.set_mode( tamanho ) 
+branco = (255,255,255)
+preto = (0, 0 ,0 )
 posicaoXPersona = 400
 posicaoYPersona = 300
 movimentoXPersona  = 0
@@ -24,12 +30,9 @@ alturaPersona = 127
 alturaMissel = 250
 larguraMissel = 50
 dificuldade = 0
-missileSound = pygame.mixer.Sound("assets/missile.wav")
-exploxaoSound = pygame.mixer.Sound("assets/explosao.wav")
-pygame.mixer.Sound.play(missileSound)
+
 fonte = pygame.font.SysFont("comicsans",25)
-pygame.mixer.music.load("assets/ironsound.mp3")
-pygame.mixer.music.play(-1)
+
 while True:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:

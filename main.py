@@ -40,7 +40,7 @@ def jogar():
     alturaPersona = 127
     larguaMissel  = 50
     alturaMissel  = 250
-    dificuldade  = 25
+    dificuldade  = 20
 
     while True:
         for evento in pygame.event.get():
@@ -150,7 +150,7 @@ def start():
 
         tela.fill(branco)
         tela.blit(fundoStart, (0,0))
-        buttonStart = pygame.draw.rect(tela, preto, (35,482,750,100),0)
+        buttonStart = pygame.draw.rect(tela, preto, (35,482,750,100),0,20)
         textoStart = fonteStart.render("START", True, branco)
         tela.blit(textoStart, (330,482))
 
